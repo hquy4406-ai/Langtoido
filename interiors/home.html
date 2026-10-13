@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Nhà Tôi</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div id="gameContainer">
+  <canvas id="game"></canvas>
+  <div id="ui">
+    <div id="houseName"></div>
+  </div>
+  <div id="hint">👆 Chạm / Click để di chuyển · Lại gần người để nói chuyện</div>
+  <button id="interactBtn">💬</button>
+  <div id="interactLabel"></div>
+  <button id="exitBtn" title="Thoát (Esc)">✕</button>
+  <div id="dialogueBox">
+    <div id="dialogueName"></div>
+    <div id="dialogueText"></div>
+    <div id="dialogueChoices"></div>
+  </div>
+  <div id="joystick"><div id="joystickKnob"></div></div>
+</div>
+<script src="../js/engine.js"></script>
+<script>
+window.HOUSE_DATA = {
+  id: 'home',
+  name: '🏠 Nhà Tôi',
+  interior: {
+    w: 12, h: 9,
+    name: 'Nhà Tôi',
+    npcs: [
+      { x: 5, y: 3, name: 'Mẹ', color: '#e74c3c', hair: '#3d2817',
+        dialogues: [
+          'Con đi đâu về đấy? Nhớ ăn cơm nhé!',
+          'Hôm nay mẹ nấu món con thích nhất đấy.',
+          'Trời đẹp thế này, ra ngoài chơi với bạn đi con.'
+        ]},
+      { x: 7, y: 3, name: 'Bố', color: '#3498db', hair: '#1a1a1a',
+        dialogues: [
+          'Con trai, giúp bố việc nhà nhé?',
+          'Ngày xưa bố cũng hay chơi ở con sông này.',
+          'Học hành chăm chỉ vào con nhé!'
+        ]}
+    ],
+    furniture: 'home'
+  }
+};
+</script>
+<script src="../js/interior.js"></script>
+</body>
+  </html>

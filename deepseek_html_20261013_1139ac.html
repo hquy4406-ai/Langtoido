@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Ngôi Làng Tuổi Thơ</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dashboard-body">
+<div class="dashboard">
+  <div class="clouds"></div>
+  <div class="sun"></div>
+
+  <div class="dashboard-content">
+    <h1 class="game-title">
+      <span class="title-line">🌾 NGÔI LÀNG</span>
+      <span class="title-line subtitle">TUỔI THƠ</span>
+    </h1>
+
+    <div class="menu">
+      <button class="menu-btn play-btn" onclick="startGame()">
+        <span class="btn-icon">▶</span>
+        <span class="btn-text">BẮT ĐẦU CHƠI</span>
+      </button>
+      <button class="menu-btn" onclick="showGuide()">
+        <span class="btn-icon">📖</span>
+        <span class="btn-text">HƯỚNG DẪN</span>
+      </button>
+      <button class="menu-btn" onclick="showAbout()">
+        <span class="btn-icon">💬</span>
+        <span class="btn-text">GIỚI THIỆU</span>
+      </button>
+    </div>
+
+    <div class="footer-text">© 2026 · Phiên bản 1.0</div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <h2 id="modalTitle"></h2>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+function startGame() {
+  window.location.href = 'game.html';
+}
+
+function showGuide() {
+  document.getElementById('modalTitle').textContent = '📖 Hướng dẫn';
+  document.getElementById('modalBody').innerHTML = `
+    <p><strong>PC:</strong></p>
+    <ul>
+      <li>🖱️ Click chuột để di chuyển</li>
+      <li>⌨️ WASD / phím mũi tên để đi</li>
+      <li>⌨️ Nhấn <strong>E</strong> hoặc <strong>Space</strong> để tương tác</li>
+      <li>⌨️ Nhấn <strong>Esc</strong> để thoát nhà</li>
+    </ul>
+    <p><strong>Mobile:</strong></p>
+    <ul>
+      <li>👆 Chạm để di chuyển</li>
+      <li>🕹️ Dùng joystick ảo (góc dưới trái)</li>
+      <li>🔘 Nhấn nút vàng để tương tác</li>
+      <li>🔘 Nhấn nút đỏ để thoát nhà</li>
+    </ul>
+    <p>💡 Lại gần cửa nhà để vào. Lại gần NPC để nói chuyện.</p>
+  `;
+  document.getElementById('modal').classList.add('show');
+}
+
+function showAbout() {
+  document.getElementById('modalTitle').textContent = '💬 Giới thiệu';
+  document.getElementById('modalBody').innerHTML = `
+    <p>Một ngôi làng nhỏ yên bình với những ký ức tuổi thơ.</p>
+    <p>Khám phá ngôi nhà của bạn, thăm bà và ông, ghé hội trường làng để gặp bạn bè và cô giáo.</p>
+    <p>Được xây dựng với HTML, Canvas và tình yêu quê hương. ❤️</p>
+  `;
+  document.getElementById('modal').classList.add('show');
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('show');
+}
+
+document.getElementById('modal').addEventListener('click', (e) => {
+  if (e.target.id === 'modal') closeModal();
+});
+</script>
+</body>
+</html>
